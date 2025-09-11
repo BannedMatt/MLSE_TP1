@@ -29,4 +29,7 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y sshpass
 
       - name: deploy on VM
-        run: sshpass -p '${{ secrets.VM_PASSWORD }}' ssh ${{secrets.VM_HOST}} bash -t 'docker pull banmatt/mlse_tp1:latest && docker stop mlse_tp1 && docker rm mlse_tp1 && docker run -d --name mlse_tp1 -p 5876:5876 banmatt/mlse_tp1:latest'
+        run: sshpass -p '${{ secrets.VM_PASSWORD }}' ssh ${{secrets.VM_HOST}} echo YOYO
+
+
+#bash -t 'docker pull banmatt/mlse_tp1:latest && docker stop mlse_tp1 && docker rm mlse_tp1 && docker run -d --name mlse_tp1 -p 5876:5876 banmatt/mlse_tp1:latest'
