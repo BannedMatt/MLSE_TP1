@@ -24,3 +24,13 @@ jobs:
       
       - name: Push Docker Image
         run: docker push banmatt/mlse_tp1
+
+      - name: Install sshpass
+        run: sudo apt-get update && sudo apt-get install -y sshpass
+
+      - name: deploy on VM
+        run: sshpass -p '${{ secrets.VM_PASSWORD }}' ssh ${{secrets.VM_HOST}} \
+          "docker pull banmatt/mlse_tp1:latest && \
+          docker stop mlse_tp1 || true && \
+          docker rm mlse_tp1 || true && \
+          docker run -d --name mlse_tp1 -p 5876:5876 banmatt/mlse_tp1:latest"
