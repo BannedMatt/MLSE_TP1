@@ -32,8 +32,8 @@ jobs:
         run: |
           sshpass -p '${{ secrets.VM_PASSWORD }}' ssh -o StrictHostKeyChecking=no ${{secrets.VM_HOST}}
           docker pull banmatt/mlse_tp1:latest
-          docker stop mlse_tp1
-          docker rm mlse_tp1
+          docker stop mlse_tp1 || true
+          docker rm mlse_tp1 || true
           docker run -d --name mlse_tp1 -p 5876:5876 banmatt/mlse_tp1:latest
 
 #bash -t 'docker pull banmatt/mlse_tp1:latest && docker stop mlse_tp1 && docker rm mlse_tp1 && docker run -d --name mlse_tp1 -p 5876:5876 banmatt/mlse_tp1:latest'*
