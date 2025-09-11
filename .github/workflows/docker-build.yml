@@ -20,7 +20,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build docker Image
-        run: docker build -t matthew_banawa/mlse_tp1 .
+        run: docker build -t banmatt/mlse_tp1 .
       
       - name: Push Docker Image
-        run: docker push matthew_banawa/mlse_tp1
+        run: docker push banmatt/mlse_tp1
