@@ -2,7 +2,6 @@ from fastapi import FastAPI, Query
 from fastapi.responses import JSONResponse
 from fastapi.encoders import jsonable_encoder
 from transformers import T5Tokenizer, T5ForConditionalGeneration
-import torch
 
 app = FastAPI()
 

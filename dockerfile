@@ -2,10 +2,12 @@ FROM python:3.12
 
 WORKDIR /app
 
-RUN pip install --no-cache-dir fastapi fastapi[standard] joblib uvicorn scikit-learn
+COPY requirements.txt .
+
+RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . /app
 
 EXPOSE 5876
 
-CMD ["uvicorn", "web_server:app", "--host", "0.0.0.0", "--port", "5876"]
+CMD ["uvicorn", "goat_server:app", "--host", "0.0.0.0", "--port", "5876"]
