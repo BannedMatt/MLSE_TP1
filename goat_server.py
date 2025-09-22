@@ -6,8 +6,8 @@ from transformers import T5Tokenizer, T5ForConditionalGeneration
 app = FastAPI()
 
 # Load model and tokenizer once at startup
-tokenizer = T5Tokenizer.from_pretrained("google/flan-t5-large")
-model = T5ForConditionalGeneration.from_pretrained("google/flan-t5-large")
+tokenizer = T5Tokenizer.from_pretrained("google/flan-t5-base")
+model = T5ForConditionalGeneration.from_pretrained("google/flan-t5-base")
 
 class GenerationResponse:
     def __init__(self, output: str):
